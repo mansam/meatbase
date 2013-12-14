@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Meatbase</title>
+        <link rel="stylesheet" href="/static/pure.css">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="pure-g-r">
+            <div class="pure-u-1-5"></div>
+            <div class="pure-u-3-5">
+                <h1><a href="/">Meatbase</a></h1>
+                <form id="search-form" class="pure-form" action="/search">
+                    <fieldset>
+                        <input name="q" type="text" placeholder="Search for items, monsters, adventures...">
+                        <button type="submit" class="pure-button pure-button-primary">Search</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="pure-u-1-5"></div>
+        </div>
+        {% block content %}{% endblock %}
+        <div class="pure-g-r">
+            <div class="pure-u-1-5"></div>
+            <div class="pure-u-3-5">
+                <div id="footer">
+                    {% block footer %}
+                    It's a footer.
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="pure-u-1-5"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="pure-g-r">
+        <div class="pure-u-1-5"></div>
+        <div class="pure-u-3-5">
+            <h1><img src="http://images.kingdomofloathing.com/itemimages/{{result.image}}"></img> {{result.name}}</h1>
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>Monster Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for monster in result.monsters %}
+                    <tr>
+                        <td><a href="/monster/name/{{monster}}">{{monster |safe}}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pure-u-1-5"></div>
+    </div>
+{% endblock %}

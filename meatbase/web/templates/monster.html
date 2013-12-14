@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="pure-g-r">
+        <div class="pure-u-1-5"></div>
+        <div class="pure-u-3-5">
+            <h1>{{result.name}}</h1>
+            <div class="pure-g-r">
+                <div class="pure-u-1-5">
+                <img src="http://images.kingdomofloathing.com/adventureimages/{{result.image}}"></img>
+                </div>
+                <div class="pure-u-4-5">
+                    <table class="pure-table">
+                        <tr>
+                            <th>Name</th>
+                            <td>{{result.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Family</th>
+                            <td>{{result.p}}</td>
+                        </tr>
+                        <tr>
+                            <th>HP</th>
+                            <td>{{result.hp}}</td>
+                        </tr>
+                        <tr>
+                            <th>Attack</th>
+                            <td>{{result.atk}}</td>
+                        </tr>
+                        <tr>
+                            <th>Defense</th>
+                            <td>{{result.def}}</td>
+                        </tr>
+                        <tr>
+                            <th>Experience</th>
+                            <td>{{result.exp}}</td>
+                        </tr>
+                        <tr>
+                            <th>Phys. Resis.</th>
+                            <td>{{result.phys}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <div class="pure-g-r">
+                <div class="pure-u-1">
+                    <table class="pure-table">
+                        <thead>
+                            <tr>
+                                <th>Icon</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Power</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for drop in drop_results %}
+                            <tr>
+                                <td><img src="http://images.kingdomofloathing.com/itemimages/{{drop.image}}"></img></td>
+                                <td>{{drop.id}}</td>
+                                <td><a href="/item/{{drop.id}}">{{drop.name |safe}}</a></td>
+                                <td>{{drop.type}}</td>
+                                <td>{{drop.power}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1-5"></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="pure-g-r">
+        <div class="pure-u-1-5"></div>
+        <div class="pure-u-3-5">
+            <h1>Results for '{{query}}'</h1>
+        </div>
+        <div class="pure-u-1-5"></div>
+    </div>
+    {% if item_results %}
+    <div class="pure-g-r">
+        <div class="pure-u-1-5"></div>
+        <div class="pure-u-3-5">
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>Icon</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Power</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in item_results %}
+                    <tr>
+                        <td><img src="http://images.kingdomofloathing.com/itemimages/{{result.image}}"></img></td>
+                        <td>{{result.id}}</td>
+                        <td><a href="/item/{{result.id}}">{{result.name |safe}}</a></td>
+                        <td>{{result.type}}</td>
+                        <td>{{result.power}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pure-u-1-5"></div>
+    </div>
+    {% endif %}
+    {% if zone_results %}
+    <div class="pure-g-r">
+        <div class="pure-u-1-5"></div>
+        <div class="pure-u-3-5">
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>Zone Name</th>
+                        <th>Combat Chance</th>
+                        <th># of Monsters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in zone_results %}
+                    <tr>
+                        <td><a href="/zone/{{result.id}}">{{result.name}}</a></td>
+                        <td>{{result.combat_chance}}</td>
+                        <td>{{result.monsters.__len__()}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pure-u-1-5"></div>
+    </div>
+    {% endif %}
+{% endblock %}
